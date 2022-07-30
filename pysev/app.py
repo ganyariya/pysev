@@ -17,12 +17,12 @@ class App:
 
     def route(
         self,
-        path: Optional[str] = None,
+        path: str = "/",
         method: str = "GET",
         callback: Optional[PysevFunc] = None,
     ):
         def decorator(callback_func: Callable) -> Callable:
-            self.router.add(method, path or "/", callback_func)
+            self.router.add(method, path, callback_func)
             return callback_func
 
         """
